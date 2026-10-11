@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"><head>
+<html lang="ar" dir="rtl">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
    
     <!-- Google Site Verification (placeholder) -->
-    <meta name="google-site-verification" content="your-verification-code">
+    <meta name="google-site-verification" content="your-verification-code" />
    
     <!-- Google tag (gtag.js) - NEW TRACKING CODE -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-18485324986"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18485324986"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -82,8 +83,8 @@
 
     <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    
     <style>
@@ -101,6 +102,7 @@
             --text-dark: #1a1a2e;
             --text-muted: #4a4a6a;
             --call-green: #00a86b;
+            --call-green-dark: #007a4d;
             --shadow-light: 0 4px 20px rgba(26, 42, 74, 0.08);
             --shadow-hover: 0 12px 40px rgba(26, 42, 74, 0.15);
             --border-light: #d9d9e8;
@@ -171,26 +173,58 @@
             color: var(--accent-gold);
         }
        
+        /* ========== زر الاتصال المحسّن ========== */
         .phone-display {
-            background: var(--call-green);
+            background: linear-gradient(135deg, var(--call-green), var(--call-green-dark));
             color: white;
             font-weight: 900;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.8rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            padding: 0.6rem 1.8rem;
+            padding: 0.9rem 2.5rem;
             border-radius: 60px;
-            box-shadow: 0 4px 15px rgba(0, 168, 107, 0.3);
-            border: none;
+            box-shadow: 0 6px 25px rgba(0, 168, 107, 0.5), 0 0 0 0 rgba(0, 168, 107, 0.7);
+            border: 3px solid #ffffff;
+            animation: pulse-call 2s infinite;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+            position: relative;
+        }
+       
+        .phone-display i {
+            font-size: 1.6rem;
+            animation: ring 1.5s infinite;
         }
        
         .phone-display:hover {
-            transform: scale(1.05);
-            background: #008f5a;
-            box-shadow: 0 6px 25px rgba(0, 168, 107, 0.5);
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #00c47d, var(--call-green));
+            box-shadow: 0 10px 40px rgba(0, 168, 107, 0.7);
+            animation: none;
+        }
+       
+        @keyframes pulse-call {
+            0% {
+                box-shadow: 0 6px 25px rgba(0, 168, 107, 0.5), 0 0 0 0 rgba(0, 168, 107, 0.7);
+            }
+            70% {
+                box-shadow: 0 6px 25px rgba(0, 168, 107, 0.5), 0 0 0 18px rgba(0, 168, 107, 0);
+            }
+            100% {
+                box-shadow: 0 6px 25px rgba(0, 168, 107, 0.5), 0 0 0 0 rgba(0, 168, 107, 0);
+            }
+        }
+       
+        @keyframes ring {
+            0%, 100% { transform: rotate(0); }
+            10% { transform: rotate(-15deg); }
+            20% { transform: rotate(15deg); }
+            30% { transform: rotate(-15deg); }
+            40% { transform: rotate(15deg); }
+            50% { transform: rotate(0); }
         }
        
         .hero {
@@ -281,34 +315,44 @@
             animation: fadeInUp 1.2s ease;
         }
        
+        /* ========== زر الطلب في الهيرو - محسّن ========== */
         .hero-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
-            padding: 1.2rem 3rem;
+            padding: 1.5rem 3.5rem;
             border-radius: 80px;
             color: white;
             text-decoration: none;
             font-weight: 900;
             transition: all 0.3s;
-            font-size: 1.4rem;
-            border: none;
+            font-size: 1.6rem;
+            border: 4px solid #ffffff;
             cursor: pointer;
             letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: pulse-call 2s infinite;
+        }
+       
+        .hero-btn i {
+            font-size: 1.8rem;
+            animation: ring 1.5s infinite;
         }
        
         .hero-btn:hover {
-            transform: translateY(-6px) scale(1.02);
+            transform: translateY(-6px) scale(1.05);
+            animation: none;
         }
        
         .secondary-btn {
-            background: var(--call-green);
-            box-shadow: 0 6px 25px rgba(0, 168, 107, 0.35);
+            background: linear-gradient(135deg, var(--call-green), var(--call-green-dark));
+            box-shadow: 0 8px 30px rgba(0, 168, 107, 0.5);
         }
        
         .secondary-btn:hover {
-            background: #008f5a;
-            box-shadow: 0 10px 40px rgba(0, 168, 107, 0.5);
+            background: linear-gradient(135deg, #00c47d, var(--call-green));
+            box-shadow: 0 12px 45px rgba(0, 168, 107, 0.7);
         }
        
         .hours-badge {
@@ -561,25 +605,32 @@
             color: var(--accent-gold);
         }
        
+        /* ========== زر الباقة - محسّن ========== */
         .package-btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--call-green);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 1.1rem 2.8rem;
+            background: linear-gradient(135deg, var(--call-green), var(--call-green-dark));
             color: white;
             text-decoration: none;
             border-radius: 60px;
             font-weight: 900;
             transition: all 0.3s;
-            border: none;
+            border: 3px solid #ffffff;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 168, 107, 0.3);
-            font-size: 1.1rem;
+            box-shadow: 0 6px 25px rgba(0, 168, 107, 0.4);
+            font-size: 1.15rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            animation: pulse-call 2.5s infinite;
         }
        
         .package-btn:hover {
-            background: #008f5a;
-            transform: scale(1.05);
-            box-shadow: 0 8px 35px rgba(0, 168, 107, 0.4);
+            background: linear-gradient(135deg, #00c47d, var(--call-green));
+            transform: scale(1.08);
+            box-shadow: 0 10px 40px rgba(0, 168, 107, 0.6);
+            animation: none;
         }
        
         .testimonials {
@@ -674,23 +725,28 @@
         }
        
         .submit-btn {
-            background: var(--call-green);
+            background: linear-gradient(135deg, var(--call-green), var(--call-green-dark));
             color: white;
-            border: none;
-            padding: 1.2rem 2rem;
+            border: 3px solid #ffffff;
+            padding: 1.3rem 2rem;
             border-radius: 80px;
             font-weight: 900;
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 20px rgba(0, 168, 107, 0.3);
+            font-size: 1.3rem;
+            box-shadow: 0 6px 25px rgba(0, 168, 107, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
        
         .submit-btn:hover {
-            background: #008f5a;
-            transform: scale(1.02);
-            box-shadow: 0 8px 35px rgba(0, 168, 107, 0.4);
+            background: linear-gradient(135deg, #00c47d, var(--call-green));
+            transform: scale(1.03);
+            box-shadow: 0 10px 40px rgba(0, 168, 107, 0.6);
         }
        
         .contact-info {
@@ -762,26 +818,38 @@
             gap: 1rem;
         }
        
+        /* ========== الزر العائم - محسّن وواضح جداً ========== */
         .floating-btn {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            padding: 1rem 2rem;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.3rem 2.5rem;
             border-radius: 80px;
             color: white;
-            background: var(--call-green);
+            background: linear-gradient(135deg, var(--call-green), var(--call-green-dark));
             text-decoration: none;
             font-weight: 900;
-            box-shadow: 0 6px 25px rgba(0, 168, 107, 0.35);
-            border: none;
+            box-shadow: 0 8px 30px rgba(0, 168, 107, 0.5), 0 0 0 0 rgba(0, 168, 107, 0.7);
+            border: 4px solid #ffffff;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: pulse-call 2s infinite;
+        }
+       
+        .floating-btn i {
+            font-size: 1.6rem;
+            animation: ring 1.5s infinite;
         }
        
         .floating-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 10px 40px rgba(0, 168, 107, 0.5);
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #00c47d, var(--call-green));
+            box-shadow: 0 12px 45px rgba(0, 168, 107, 0.7);
+            animation: none;
         }
        
         .simple-footer {
@@ -792,24 +860,32 @@
             text-align: center;
         }
        
+        /* ========== رقم الهاتف في الفوتر - محسّن ========== */
         .footer-phone {
             font-weight: 900;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            margin: 1rem 0;
+            margin: 1.2rem 0;
             transition: transform 0.2s;
-            display: inline-block;
-            background: var(--call-green);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, var(--call-green), var(--call-green-dark));
             color: white;
-            padding: 0.5rem 2rem;
+            padding: 0.9rem 2.5rem;
             border-radius: 60px;
-            box-shadow: 0 4px 20px rgba(0, 168, 107, 0.3);
+            box-shadow: 0 6px 25px rgba(0, 168, 107, 0.5);
+            border: 3px solid #ffffff;
+            animation: pulse-call 2s infinite;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
        
         .footer-phone:hover {
-            transform: scale(1.06);
-            background: #008f5a;
-            box-shadow: 0 8px 35px rgba(0, 168, 107, 0.4);
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #00c47d, var(--call-green));
+            box-shadow: 0 10px 40px rgba(0, 168, 107, 0.7);
+            animation: none;
         }
        
         .simple-footer p:last-child {
@@ -836,20 +912,37 @@
                 padding: 0.2rem 0.8rem;
             }
             .phone-display {
-                font-size: 0.9rem;
-                padding: 0.4rem 1rem;
+                font-size: 1rem;
+                padding: 0.6rem 1.3rem;
+                border-width: 2px;
+            }
+            .phone-display i {
+                font-size: 1.1rem;
             }
             .hero-btn {
-                font-size: 1.1rem;
-                padding: 1rem 2rem;
+                font-size: 1.15rem;
+                padding: 1.1rem 1.8rem;
+                border-width: 3px;
+            }
+            .hero-btn i {
+                font-size: 1.3rem;
             }
             .floating-btns {
-                right: 1rem;
-                bottom: 1.5rem;
+                right: 0.8rem;
+                bottom: 1rem;
             }
             .floating-btn {
-                padding: 0.8rem 1.4rem;
-                font-size: 0.85rem;
+                padding: 1rem 1.6rem;
+                font-size: 1rem;
+                border-width: 3px;
+            }
+            .floating-btn i {
+                font-size: 1.2rem;
+            }
+            .footer-phone {
+                font-size: 1.3rem;
+                padding: 0.7rem 1.6rem;
+                border-width: 2px;
             }
         }
     </style>
@@ -864,7 +957,7 @@
     <nav class="navbar">
         <div class="logo"><i class="fas fa-hammer"></i> نجار الكويت - ابواب خشب وايكيا</div>
         <div class="phone-display" onclick="makePhoneCall('60096497')">
-            <i class="fas fa-phone-alt"></i> 60096497
+            <i class="fas fa-phone-alt"></i> اتصل الآن: 60096497
         </div>
     </nav>
 
@@ -876,7 +969,9 @@
         <p>✅ نجار بالكويت - تركيب ابواب خشب - كبتات - تركيب ايكيا - صيانة ابواب - نجار شاطر ورخيص - نغطي جميع مناطق الكويت: حولي، سلوى، السالمية، الجهراء، الجابرية، بيان، الرميثية</p>
         <div class="hero-buttons">
             <button class="hero-btn secondary-btn" onclick="makePhoneCall('60096497')">
-                <i class="fas fa-phone-volume"></i>اطلــــب الان&nbsp;</button>
+                <i class="fas fa-phone-volume"></i>
+                اتصل الآن مجاناً - 60096497
+            </button>
         </div>
     </section>
 
@@ -951,19 +1046,19 @@
                 <h3 class="package-title">باقة تركيب ابواب خشب</h3>
                 <div class="package-price">تركيب متكامل</div>
                 <ul class="package-features"><li>تركيب ابواب خشب</li><li>نجار خشب ابواب</li><li>صيانة ابواب</li><li>ضمان 5 سنوات</li></ul>
-                <button class="package-btn" onclick="makePhoneCall('60096497')">اطلب الخدمة</button>
+                <button class="package-btn" onclick="makePhoneCall('60096497')"><i class="fas fa-phone-alt"></i> اطلب الخدمة الآن</button>
             </div>
             <div class="package-card">
                 <h3 class="package-title">باقة كبتات وتركيب ايكيا</h3>
                 <div class="package-price">تشطيب فاخر</div>
                 <ul class="package-features"><li>نجار كبتات الكويت</li><li>تركيب اثاث ايكيا</li><li>نجار ايكيا الكويت</li><li>ضمان 5 سنوات</li></ul>
-                <button class="package-btn" onclick="makePhoneCall('60096497')">اطلب الخدمة</button>
+                <button class="package-btn" onclick="makePhoneCall('60096497')"><i class="fas fa-phone-alt"></i> اطلب الخدمة الآن</button>
             </div>
             <div class="package-card">
                 <h3 class="package-title">باقة صيانة ابواب</h3>
                 <div class="package-price">خدمة سريعة</div>
                 <ul class="package-features"><li>نجار صيانة ابواب</li><li>تركيب اقفال</li><li>نجار رخيص بالكويت</li><li>ضمان 3 سنوات</li></ul>
-                <button class="package-btn" onclick="makePhoneCall('60096497')">اطلب الخدمة</button>
+                <button class="package-btn" onclick="makePhoneCall('60096497')"><i class="fas fa-phone-alt"></i> اطلب الخدمة الآن</button>
             </div>
         </div>
     </section>
@@ -981,9 +1076,9 @@
         <h2 class="section-title">اطلب استشارة مجانية - نجار الكويت 60096497</h2>
         <div class="form-container">
             <form id="contactForm">
-                <div class="form-group"><label for="name">الاسم الكامل</label><input type="text" id="name" placeholder="أدخل اسمك" required=""></div>
-                <div class="form-group"><label for="phone">رقم الهاتف</label><input type="tel" id="phone" placeholder="مثال: 51234567" required=""></div>
-                <div class="form-group"><label for="area">المنطقة (حولي، سلوى، السالمية، الجهراء، الجابرية، بيان، الرميثية)</label><input type="text" id="area" placeholder="حدد منطقتك" required=""></div>
+                <div class="form-group"><label for="name">الاسم الكامل</label><input type="text" id="name" placeholder="أدخل اسمك" required></div>
+                <div class="form-group"><label for="phone">رقم الهاتف</label><input type="tel" id="phone" placeholder="مثال: 51234567" required></div>
+                <div class="form-group"><label for="area">المنطقة (حولي، سلوى، السالمية، الجهراء، الجابرية، بيان، الرميثية)</label><input type="text" id="area" placeholder="حدد منطقتك" required></div>
                 <div class="form-group"><label for="service">نوع الخدمة المطلوبة</label>
                     <select id="service">
                         <option>تركيب ابواب خشب</option>
@@ -1054,12 +1149,12 @@
     </div>
 
     <div class="floating-btns">
-        <button class="floating-btn" onclick="makePhoneCall('60096497')"><i class="fas fa-phone"></i> اتصل الآن</button>
+        <button class="floating-btn" onclick="makePhoneCall('60096497')"><i class="fas fa-phone-alt"></i> اتصل الآن - 60096497</button>
     </div>
 
     <div class="simple-footer">
         <p>🪚 نجار الكويت - ابواب خشب - كبتات - تركيب ايكيا - صيانة ابواب - نجار شاطر</p>
-        <div class="footer-phone" onclick="makePhoneCall('60096497')"><i class="fas fa-phone"></i> 60096497</div>
+        <div class="footer-phone" onclick="makePhoneCall('60096497')"><i class="fas fa-phone-alt"></i> 60096497</div>
         <p>نجار معتمد - ضمان الجودة - أسعار مناسبة - تغطية جميع مناطق الكويت</p>
         <p>جميع الحقوق محفوظة © 2026 | نجار الكويت - افضل نجار في الكويت - رقم 60096497</p>
     </div>
@@ -1074,5 +1169,5 @@
             this.reset();
         });
     </script>
-
-</body></html>
+</body>
+</html>
